@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/include/css/frame.css">
+        <link rel="stylesheet" type="text/css" href="/include/css/nav_css.css">
+        <link rel="stylesheet" type="text/css" href="/include/main.css">
+        <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+     <!--[if lt IE 9]>
+    <script>
+        document.createElement('video');
+    </script>
+    <![endif]-->
+    </head>
+
+   
+
+
+<body>
+    <header id="mast" class="">
+    
+    <!-- Main Nav-->
+    <a id="toggle" href="#">
+      <div class="menubars"></div>
+    </a>
+    <nav>
+      <div class="nav-background" style="display:none;">
+        <ul>
+          <li>
+            <a href="{{ path('skatelist') }}">Zoeken</a>
+          </li>
+          <li>
+            <a href="{{ path('riders') }}">Riders List</a>
+          </li>
+          <li>
+            <a href="{{ path('skatepark_index') }}">Admin</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+</header>
+    <video id="bgvid" autoplay poster="/include/MVI_5565.webm" src="/include/MVI_5565.webm">
+        <source src="/include/MVI_5565.webm"/>
+    </video>
+   <div class="container">
+    
+    
+    {% block body %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+       </div>
+    
+<script>
+$(".addItem").click(function(){
+  $(".listitems").fadeToggle("slow", "linear");
+});
+</script>
+<script>
+$("a#toggle").on('click', function(e) {
+  $('.nav-background').css('display', 'table');
+  $('body').toggleClass('js-open');
+  $('nav').toggleClass('js-open');
+  e.preventDefault();
+});
+
+$(".nav-background").on('click', function() {
+  $('body, nav').removeClass('js-open');
+  $('.nav-background').css('display', 'none');
+});
+    
+$('video').on('ended', function () {
+  this.load();
+  this.play();
+});
+</script>
+    
+</body>
+</html>

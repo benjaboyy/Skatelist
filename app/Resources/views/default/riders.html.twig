@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% set breed = 6 %}
+
+<div class="child panel panel-default">
+    <div class="panel-body" id="onder">
+        <div class="row">
+            <div class="col-sm-6"><h1>Riders</h1></div>  
+            <div class="col-sm-6">
+                <form style="float:right!important;" class="navbar-form navbar-left" method="post" action="index.php" id="searchform">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button style="min-height: 52px;" type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>  
+        </div>
+        <div class="row">
+            <div style="margin-bottom:15px;" class="col-sm-{{ breed }}">
+                <a href="#">
+                  <img width="100%" class="media-object" src="include/img/benjamin-rider.jpg">
+                </a><br/><h4>Benjamin Vitters</h4>
+            </div>
+            <div style="margin-bottom:15px;" class="col-sm-{{ breed }}">
+                <a href="#">
+                  <img width="100%" class="media-object" src="include/img/cas-rider.jpg">
+                </a><br/><h4>Cas Kooreman</h4>
+            </div>
+            <div style="margin-bottom:15px;" class="col-sm-{{ breed }}">
+                <a href="#">
+                  <img width="100%" class="media-object" src="include/img/nathan-rider.jpg">
+                </a><br/><h4>Nathan Hesseling</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

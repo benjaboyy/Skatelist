@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+    <div class="web-down">
+    <div class="well admin">
+            <h1>Skatepark list</h1>
+        <table class="table table-trs">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Streetname</th>
+                    <th>Rating</th>
+                    <th>Facilities</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for skatepark in skateparks %}
+                <tr href="{{ path('skatepark_show', { 'id': skatepark.id }) }}">
+                    <td><a class="">{{ skatepark.id }}</a></td>
+                    <td>{{ skatepark.name }}</td>
+                    <td>{{ skatepark.location }}</td>
+                    <td>{{ skatepark.streetName }}</td>
+                    <td>{{ skatepark.rating }}</td>
+                    <td>{% if skatepark.facilities %}{{ skatepark.facilities|join(', ') }}{% endif %}</td>
+                    <td>
+                        <a href="{{ path('skatepark_show', { 'id': skatepark.id }) }}"><i class="fa fa-eye"></i></a>
+                        <a href="{{ path('skatepark_edit', { 'id': skatepark.id }) }}"><i class="fa fa-pencil text-warning"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+                <a class="btn btn-primary" href="{{ path('skatepark_new') }}">Create a new entry</a>
+
+        </div>
+    </div>
+{% endblock %}

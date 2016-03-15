@@ -1,0 +1,29 @@
+AppBundle\Entity\Skatepark:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\SkateparkRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        location:
+            type: string
+            length: 255
+        streetName:
+            type: string
+            length: 255
+            column: street_name
+        rating:
+            type: integer
+        image:
+            type: string
+            length: 255
+        facilities:
+            type: array
+    lifecycleCallbacks: {  }

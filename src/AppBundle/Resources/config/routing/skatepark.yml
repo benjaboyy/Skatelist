@@ -1,0 +1,24 @@
+skatepark_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Skatepark:index" }
+    methods:  GET
+
+skatepark_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Skatepark:show" }
+    methods:  GET
+
+skatepark_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Skatepark:new" }
+    methods:  [GET, POST]
+
+skatepark_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Skatepark:edit" }
+    methods:  [GET, POST]
+
+skatepark_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Skatepark:delete" }
+    methods:  DELETE

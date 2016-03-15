@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="child panel panel-default">
+  <div class="panel-heading">
+    <h2 style="padding:15px; font" class="panel-title">SKATESPOT SEARCH ENGINE</h2>
+  </div>
+  <div class="panel-body" id="onder">
+    <div class="row">
+      {{ form_start(form) }}
+        <div class="col-md-7">
+            {{ form_widget(form.zoek, {'attr':{'class':"form-control"}}) }}
+        </div>  
+        <div class="col-md-3 col-xs-6">
+            <select id="select-filter" palceholder="Filter" class="form-control">
+                <option value="">Geen filter</option>
+                <option value="">Plaats</option>
+                <option value="">park</option>
+                <option value="">spot</option>
+            </select>
+        </div>
+        <div class="col-md-2 col-xs-6">
+            {{ form_widget(form.submit, {'attr':{'class':"btn btn-primary breed"}}) }}
+<!--
+            <button  type="submit" value="Search" class="btn btn-primary breed">
+                <i class="fa fa-search"></i>
+                Zoeken
+            </button>
+-->
+        </div>
+       {{ form_end(form) }}      
+    </div>
+  </div>
+</div>
+
+
+
+{% if skateparks is empty %}
+    <div id="hippeDiv" class="panel panel-default">
+      <div class="panel-body" id="alleen">
+        <div class="row">
+            <center>
+                <p>Er zijn geen spots gevonden</p>
+            </center>
+        </div>
+      </div>
+    </div>
+{% else %}
+    {% for skatepark in skateparks %}
+        <div id="hippeDiv" class="panel panel-default">
+          <div class="panel-body" id="alleen">
+            <div class="row row-onder resultaat">
+                <div class="col-sm-4">
+                    <strong>{{ skatepark.name }}</strong>
+                    <p>{{ skatepark.location }}</p>
+                </div>  
+                <div class="col-sm-4 row-weg">
+                    <br/><p class="primary">Waardering: {% for i in 1..5 %}<i class="fa fa-star{{ skatepark.rating>=i?'':'-o' }}"></i>{% endfor %}</p>
+                </div>
+                <div class="col-sm-3 row-weg">
+                    <br/><p>Data Nummer: {{ skatepark.id }}</p>
+                </div>  
+                <div class="col-md-1 row-hoog">
+                    <a type="button" class="btn btn-primary doorstuur" href="{{ path('skatepark_show',{ 'id': skatepark.id }) }}" >
+                        <center>
+                            <i class="fa fa-arrow-right"></i>
+                            </center>
+                    </a> 
+                </div>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+
+{% endif %}
+
+{% endblock %}

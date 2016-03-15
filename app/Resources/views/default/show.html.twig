@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="web-down">
+    
+    <div class="row">
+        <a class="col-sm-6 leftspad">
+            <div onclick="location.href="http//:maps.google.com"  ;" id="hippeDiv" class="panel panel-default ">
+              <div class="panel-body" id="alleen">
+                <div class="row">
+                    <center>
+                        <p>BEKIJKEN OP MAPS</p>
+                    </center>
+                </div>
+              </div>
+            </div>
+        </a>
+        <div class="col-sm-6 rightpad">
+            <div id="hippeDiv" class="panel panel-default">
+              <div class="panel-body" id="alleen">
+                <div class="row">
+                    <center>
+                        <p>DELEN MET VRIENDEN</p>
+                    </center>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div id="hippeDiv" class="panel panel-default">
+      <div class="panel-body" id="alleen">
+          <h3>{{ skatepark.name }}</h3>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ skatepark.id }}</td>
+                </tr>
+                <tr>
+                    <th>Location</th>
+                    <td>{{ skatepark.location }}</td>
+                </tr>
+                <tr>
+                    <th>Streetname</th>
+                    <td>{{ skatepark.streetName }}</td>
+                </tr>
+                <tr>
+                    <th>Rating</th>
+                    <td>{{ skatepark.rating }}</td>
+                </tr>
+                <tr>
+                    <th>Image</th>
+                    <td><img src="{{ skatepark.image|raw }}" /></td>
+                </tr>
+                <tr>
+                    <th>Facilities</th>
+                    <td>{% if skatepark.facilities %}{{ skatepark.facilities|join(', ') }}{% endif %}</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+
+    
+            <a class="btn btn-primary" href="{{ path('skatepark_index') }}">Back to list</a>
+            <a class="btn btn-primary" href="{{ path('skatepark_edit', { 'id': skatepark.id }) }}">Edit</a>
+            {{ form_start(delete_form) }}
+                <input class="btn btn-danger" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        
+    </div></div>
+{% endblock %}

@@ -1,0 +1,8 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+app_skatepark:
+    resource: "@AppBundle/Resources/config/routing/skatepark.yml"
+    prefix:   /skatepark
+

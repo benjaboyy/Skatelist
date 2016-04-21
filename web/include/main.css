@@ -10,6 +10,10 @@
 .menu-button:hover {
   background-color: #00b1b1; }
 
+.full{
+    width: 100%;
+}
+
 @media (max-width: 768px) {
   .doorstuur {
     float: right;
@@ -26,7 +30,7 @@
     padding-bottom: 20px;
     background-color: #009393;
     color: #fff; }
-
+   
   .child {
     margin-top: 30px; }
 

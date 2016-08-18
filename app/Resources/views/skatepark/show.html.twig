@@ -37,6 +37,10 @@
                     <td>{{ skatepark.id }}</td>
                 </tr>
                 <tr>
+                    <th>Type</th>
+                    <td></td>
+                </tr>
+                <tr>
                     <th>Location</th>
                     <td>{{ skatepark.location }}</td>
                 </tr>
@@ -58,7 +62,9 @@
     </div>
     <div class="row">
         <a class="col-sm-6 leftspad">
-            <img class="full" src="{{ skatepark.image|raw }}" />
+            <div style="height:100%; width:100%; object">
+                <img style="min-height:100%; min-width:100%;" class="full" src="{{ skatepark.image|raw }}" />
+            </div>
         </a>
         <a class="col-sm-6 rightpad">
             <img class="full" src="https://maps.googleapis.com/maps/api/staticmap?size=600x400&center={{ skatepark.location }},{{ skatepark.streetName }}&markers={{ skatepark.location }},{{ skatepark.streetName }}">
